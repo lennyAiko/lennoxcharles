@@ -8,10 +8,6 @@ const apicache = require("apicache");
 let cache = apicache.middleware;
 
 router.get("/", cache("2 minutes"), async (req, res, next) => {
-  return res.redirect("home");
-});
-
-router.get("/home", cache("2 minutes"), async (req, res, next) => {
   const ApiRes = await needle(
     "get",
     "http://aikopy.pythonanywhere.com/projects/"
